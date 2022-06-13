@@ -6,18 +6,18 @@ const fs = require('fs');
  * https://gist.github.com/victorsollozzo/4134793
  * @return Array
  */
-function recFindByExt(base,ext, files,result) {
-    let files = files || fs.readdirSync(base);
-    let result = result || [];
+function recFindByExt(base, ext, files, result) {
+    var files = files || fs.readdirSync(base);
+    var result = result || [];
 
     files.forEach(
         function (file) {
             const newbase = path.join(base,file);
             if (fs.statSync(newbase).isDirectory()) {
-                result = recFindByExt(newbase, ext, fs.readdirSync(newbase), result)
+                result = recFindByExt(newbase, ext, fs.readdirSync(newbase), result);
             } else {
                 if (file.substr(-1*(ext.length+1)) == '.' + ext) {
-                    result.push(newbase)
+                    result.push(newbase);
                 }
             }
         }
@@ -33,7 +33,7 @@ const purgeContent = () => {
     const EXCLUDE_FROM_PARENT = []; // e.g. ['Magento_Review']
 
     // Declare array to stores all paths for hyvaDefault theme's phtml files
-    let hyvaDefault = recFindByExt('../../../../../../../vendor/hyva-themes/magento2-default-theme/', 'phtml');
+    let themeReset = recFindByExt('../../../../Tuna/reset/', 'phtml');
 
     // Declare array to stores all paths for your current theme's phtml files
     let currentTheme = recFindByExt('../../','phtml');
@@ -41,7 +41,7 @@ const purgeContent = () => {
     // Filter the array of templates from hyva-default to remove any templates overridden in your theme.
     // A similar filter can be used on other parent theme's if you have a
     // multi-store Magento install using a different theme structure.
-    currentTheme = currentTheme.filter(function(item) {
+    themeReset = themeReset.filter(function(item) {
         let isAllowed = true;
 
         for(const key in this) {
@@ -53,7 +53,7 @@ const purgeContent = () => {
         return isAllowed;
     }, currentTheme.concat(EXCLUDE_FROM_PARENT));
 
-    return currentTheme.concat(currentTheme);
+    return currentTheme.concat(themeReset);
 }
 
 module.exports = {

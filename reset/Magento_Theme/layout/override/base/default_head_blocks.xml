@@ -9,9 +9,9 @@
     <head>
         <meta name="format-detection" content="telephone=no"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <remove src="css/styles-m.css"/>
-        <remove src="css/styles-l.css"/>
-        <remove src="css/print.css" />
+<!--        <remove src="css/styles-m.css"/>-->
+<!--        <remove src="css/styles-l.css"/>-->
+<!--        <remove src="css/print.css" />-->
         <remove src="mage/calendar.css"/>
         <remove src="jquery/jquery.js"/>
         <remove src="requirejs/require.js"/>
