@@ -60,6 +60,7 @@ const purgeContent = () => {
 }
 
 module.exports = {
+    mode: process.env.TAILWIND_COMPILE_MODE || 'jit',
     content: [
         '../../*/*/*.{phtml,js}',
         '../../../*/*/*/*.{phtml,js}',

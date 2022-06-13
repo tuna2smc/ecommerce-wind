@@ -14,6 +14,8 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "csso": "^5.0.3",
+    "csso-cli": "^3.0.0",
     "jest": "^27.5.1",
     "postcss": "^8.4.14",
     "postcss-cli": "^9.1.0"
@@ -41,6 +43,6 @@
     "build-prod": "NODE_ENV=production TAILWIND_COMPILE_MODE=jit npm run build && npm run minify && npm run output",
     "browser-sync": "PROXY_URL=https://app.contribution.test/ browser-sync start --config ./browser-sync.config.js",
     "minify": "npx csso tailwind-output.css --output ../css/styles.css",
-    "output": "echo \"\\03[0;32mDone!\\03[0m\""
+    "output": "echo \"\\033[0;32mDone!\\033[0m\""
   }
 }

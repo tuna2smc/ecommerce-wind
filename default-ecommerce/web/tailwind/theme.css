@@ -1,0 +1,5 @@
+@layer utilities {
+    .text-sans-serif {
+        font-family: 'Open Sans', sans-serif;
+    }
+}
