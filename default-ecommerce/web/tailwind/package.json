@@ -37,9 +37,10 @@
   "scripts": {
     "build": "npx postcss tailwind-source.css -o tailwind-output.css",
     "watch": "NODE_ENV=development TAILWIND_COMPILE_MODE=jit TAILWIND_MODE=watch npx postcss tailwind-source.css -o ../css/styles.css --watch --verbose",
-    "build-dev": "NODE_ENV=development TAILWIND_COMPILE_MODE=aot npm run build && cp tailwind-output.css ../css/styles.css npx postcss tailwind-source.css -o tailwind-output.css",
-    "build-prod": "NODE_ENV=production TAILWIND_COMPILE_MODE=jit npm run build && npm run minify",
+    "build-dev": "NODE_ENV=development TAILWIND_COMPILE_MODE=aot npm run build && cp tailwind-output.css ../css/styles.css && npm run output",
+    "build-prod": "NODE_ENV=production TAILWIND_COMPILE_MODE=jit npm run build && npm run minify && npm run output",
     "browser-sync": "PROXY_URL=https://app.contribution.test/ browser-sync start --config ./browser-sync.config.js",
-    "minify": "npx csso tailwind-output.css --output ../css/styles.css"
+    "minify": "npx csso tailwind-output.css --output ../css/styles.css",
+    "output": "echo \"\\03[0;32mDone!\\03[0m\""
   }
 }

@@ -1,5 +1,8 @@
 const path = require('path');
 const fs = require('fs');
+const { cwd } = require('process');
+const deepmerge = require('deepmerge');
+const tailwindDir = cwd();
 
 /**
  * Finds and lists all files in a directory with a specific extension
@@ -57,7 +60,10 @@ const purgeContent = () => {
 }
 
 module.exports = {
-    content: purgeContent,
+    content: [
+        '../../*/*/*.{phtml,js}',
+        '../../../*/*/*/*.{phtml,js}',
+    ],
     theme: {
         colors: {
             'blue': '#1fb6ff',
