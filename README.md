@@ -2,10 +2,12 @@
 
 Base theme tailwind for magento 2.4
 
-no less/css from default magento. Only tailwind class ultility only
+Wipe-out all less/css from core default magento. Only use tailwind class ultility and small custom styles with sass.
+Theme reset(abstract) remove all requireJS, jQuery old legacy, some blocks related with requirejs. But overall keep basic magento core remain container, blocks. Re-order layout container, add some new custom container,blocks
 
+Theme default-ecommerce build all thing from ground with tailwind css and vanillaJS. Parent for all other child theme extending from near future.
+
+### Starting point: 
 Add/Create Tuna folder and pull files from this repo as child of this folder parent
 
-Theme reset remove all requireJS,jQuery some blocks related with requirejs. But overall keep magento core remain block. Entire all magento base css removed.
 
-Theme ecommerce-default build all thing from ground with tailwind css and vanillaJS
