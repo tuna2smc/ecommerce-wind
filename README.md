@@ -8,6 +8,6 @@ Theme reset(abstract) remove all requireJS, jQuery old legacy, some blocks relat
 Theme default-ecommerce build all thing from ground with tailwind css and vanillaJS. Parent for all other child theme extending from near future.
 
 ### Starting point: 
-Add/Create Tuna folder and pull files from this repo as child of this folder parent
+Add/Create FlyEcomerce folder and pull files from this repo as child of this folder parent
 
 

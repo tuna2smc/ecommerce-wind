@@ -6,4 +6,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::THEME, 'frontend/Tuna/reset', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::THEME, 'frontend/FlyEcomerce/reset', __DIR__);
