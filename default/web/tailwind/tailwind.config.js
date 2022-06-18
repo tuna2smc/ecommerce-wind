@@ -4,6 +4,8 @@ const { cwd } = require('process');
 const deepmerge = require('deepmerge');
 const tailwindDir = cwd();
 
+
+
 /**
  * Finds and lists all files in a directory with a specific extension
  * https://gist.github.com/victorsollozzo/4134793
@@ -30,18 +32,18 @@ function recFindByExt(base, ext, files, result) {
 
 const purgeContent = () => {
     // Add any sub-directories you wish to be excluded by Tailwind when checking
-    // the hyva-default theme.
+    // the FlyEcomerce default theme.
     // For example you may have removed Magento_Review from your store, and therefore
     // do not wish for Tailwind to generate any CSS for it.
     const EXCLUDE_FROM_PARENT = []; // e.g. ['Magento_Review']
 
-    // Declare array to stores all paths for hyvaDefault theme's phtml files
-    let themeReset = recFindByExt('../../../../Tuna/reset/', 'phtml');
+    // Declare array to stores all paths for FlyEcomerce theme's phtml files
+    let themeReset = recFindByExt('../../../../FlyEcomerce/reset/', 'phtml');
 
     // Declare array to stores all paths for your current theme's phtml files
     let currentTheme = recFindByExt('../../','phtml');
 
-    // Filter the array of templates from hyva-default to remove any templates overridden in your theme.
+    // Filter the array of templates from FlyEcomerce default to remove any templates overridden in your theme.
     // A similar filter can be used on other parent theme's if you have a
     // multi-store Magento install using a different theme structure.
     themeReset = themeReset.filter(function(item) {
@@ -61,10 +63,9 @@ const purgeContent = () => {
 
 module.exports = {
     mode: process.env.TAILWIND_COMPILE_MODE || 'jit',
-    content: [
-        '../../*/*/*.{phtml,js}',
-        '../../../*/*/*/*.{phtml,js}',
-    ],
+    purge: {
+        content: purgeContent()
+    },
     theme: {
         colors: {
             'blue': '#1fb6ff',
