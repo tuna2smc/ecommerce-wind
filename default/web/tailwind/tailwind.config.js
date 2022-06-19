@@ -1,10 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { cwd } = require('process');
-const deepmerge = require('deepmerge');
 const tailwindDir = cwd();
-
-
 
 /**
  * Finds and lists all files in a directory with a specific extension
@@ -12,8 +9,8 @@ const tailwindDir = cwd();
  * @return Array
  */
 function recFindByExt(base, ext, files, result) {
-    var files = files || fs.readdirSync(base);
-    var result = result || [];
+    files = files || fs.readdirSync(base);
+    result = result || [];
 
     files.forEach(
         function (file) {
@@ -38,10 +35,10 @@ const purgeContent = () => {
     const EXCLUDE_FROM_PARENT = []; // e.g. ['Magento_Review']
 
     // Declare array to stores all paths for FlyEcomerce theme's phtml files
-    let themeReset = recFindByExt('../../../../FlyEcomerce/reset/', 'phtml');
+    let themeReset = recFindByExt('../../../reset/', 'phtml');
 
     // Declare array to stores all paths for your current theme's phtml files
-    let currentTheme = recFindByExt('../../','phtml');
+    let currentTheme = recFindByExt('../../', 'phtml');
 
     // Filter the array of templates from FlyEcomerce default to remove any templates overridden in your theme.
     // A similar filter can be used on other parent theme's if you have a
@@ -50,7 +47,7 @@ const purgeContent = () => {
         let isAllowed = true;
 
         for(const key in this) {
-            if (item.includes(this[key].replace(/..//g, ''))) {
+            if (item.includes(this[key].replace(/..\//g, ''))) {
                 isAllowed = false;
             }
         }
@@ -63,26 +60,16 @@ const purgeContent = () => {
 
 module.exports = {
     mode: process.env.TAILWIND_COMPILE_MODE || 'jit',
-    purge: {
-        content: purgeContent()
-    },
+    content: purgeContent(),
     theme: {
-        colors: {
-            'blue': '#1fb6ff',
-            'purple': '#7e5bef',
-            'pink': '#ff49db',
-            'orange': '#ff7849',
-            'green': '#13ce66',
-            'yellow': '#ffc82c',
-            'gray-dark': '#273444',
-            'gray': '#8492a6',
-            'gray-light': '#d3dce6',
-        },
         fontFamily: {
             sans: ['Graphik', 'sans-serif'],
             serif: ['Merriweather', 'serif'],
         },
         extend: {
+            colors: {
+                'carmine': '#a50034'
+            },
             spacing: {
                 '8xl': '96rem',
                 '9xl': '128rem',
@@ -92,4 +79,9 @@ module.exports = {
             }
         }
     },
+    variants: {
+        extend: {},
+    },
+    plugins: [
+    ],
 }
