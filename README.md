@@ -10,4 +10,14 @@ Theme default-ecommerce build all thing from ground with tailwind css and vanill
 ### Starting point: 
 Add/Create FlyEcomerce folder and pull files from this repo as child of this folder parent
 
+### Stacks
+Tailwindcss
+Vue
+Webpack
+Browser-sync
+TypeScript
+
+### Specials Thanks
+Creativeshop
+
 
