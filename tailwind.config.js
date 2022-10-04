@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const { cwd } = require('process');
 const tailwindDir = cwd();
+const hyvaModules = require('@hyva-themes/hyva-modules');
 
 /**
  * Finds and lists all files in a directory with a specific extension
