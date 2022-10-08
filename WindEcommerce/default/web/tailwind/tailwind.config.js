@@ -2,7 +2,6 @@ const path = require('path');
 const fs = require('fs');
 const { cwd } = require('process');
 const tailwindDir = cwd();
-const hyvaModules = require('@hyva-themes/hyva-modules');
 
 /**
  * Finds and lists all files in a directory with a specific extension
@@ -30,18 +29,18 @@ function recFindByExt(base, ext, files, result) {
 
 const purgeContent = () => {
     // Add any sub-directories you wish to be excluded by Tailwind when checking
-    // the FlyEcomerce default theme.
+    // the WindEcommerce default theme.
     // For example you may have removed Magento_Review from your store, and therefore
     // do not wish for Tailwind to generate any CSS for it.
     const EXCLUDE_FROM_PARENT = []; // e.g. ['Magento_Review']
 
-    // Declare array to stores all paths for FlyEcomerce theme's phtml files
+    // Declare array to stores all paths for theme's phtml files
     let themeReset = recFindByExt('../../../reset/', 'phtml');
 
     // Declare array to stores all paths for your current theme's phtml files
     let currentTheme = recFindByExt('../../', 'phtml');
 
-    // Filter the array of templates from FlyEcomerce default to remove any templates overridden in your theme.
+    // Filter the array of templates from default to remove any templates overridden in your theme.
     // A similar filter can be used on other parent theme's if you have a
     // multi-store Magento install using a different theme structure.
     themeReset = themeReset.filter(function(item) {

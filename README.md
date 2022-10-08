@@ -12,7 +12,6 @@ Add/Create WindEcommerce folder and pull files from this repo as child of this f
 
 ### Stacks
     Tailwindcss
-    Vue.js
     Webpack
     Browser-sync
     TypeScript

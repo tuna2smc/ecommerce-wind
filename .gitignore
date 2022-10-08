@@ -5,4 +5,5 @@ node_modules
 public
 dist
 
-src/default/web/css/styles.css
+WindEcommerce/default/web/tailwind/node_modules
+WindEcommerce/default/web/css/styles.css
