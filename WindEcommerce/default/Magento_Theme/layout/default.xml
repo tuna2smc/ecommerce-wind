@@ -20,6 +20,5 @@
             </arguments>
         </referenceBlock>
 
-        <referenceContainer name="header-wrapper" htmlClass="header content logo-wrap"></referenceContainer>
     </body>
 </page>

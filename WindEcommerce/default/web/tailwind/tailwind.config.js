@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { cwd } = require('process');
+const tailwindCollector = require('./tailwindjs-config-collector');
 const tailwindDir = cwd();
 
 /**
@@ -66,6 +67,12 @@ module.exports = {
             sans: ['Graphik', 'sans-serif'],
             serif: ['Merriweather', 'serif'],
         },
+        spacing: {
+            sm: '8px',
+            md: '16px',
+            lg: '24px',
+            xl: '48px'
+        },
         extend: {
             colors: {
                 'carmine': '#a50034'
@@ -76,6 +83,9 @@ module.exports = {
             },
             borderRadius: {
                 '4xl': '2rem',
+            },
+            container: {
+                center: true
             }
         }
     },
@@ -83,5 +93,6 @@ module.exports = {
         extend: {},
     },
     plugins: [
+        
     ],
 }
