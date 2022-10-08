@@ -10,6 +10,10 @@ Theme ecommerce build all thing from ground with tailwind css and Vue.js. Parent
 ### Starting point:
 Add/Create WindEcommerce folder and pull files from this repo as child of this folder parent
 
+### GIT
+cd app/design/frontend
+git clone https://github.com/mrtuvn/ecommerce-wind ./WindEcommerce
+
 ### Stacks
     Tailwindcss
     Webpack
