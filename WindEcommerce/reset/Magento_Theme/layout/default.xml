@@ -23,6 +23,13 @@
         <referenceBlock name="google.maps.api" remove="true"/>
         <referenceBlock name="pagebuilder.widget.initializer" remove="true"/>
 
+        <!-- reorder -->
+        <move element="navigation.sections" destination="header.container" />
+        <move element="store.settings.currency" destination="footer" />
+        <move element="currency" destination="footer" />
+
+        <referenceContainer name="header-wrapper" htmlClass="header content logo-wrap"></referenceContainer>
+
         <referenceContainer name="before.body.end">
             <block name="body.end.scripts" template="Magento_Theme::body-end-scripts.phtml" after="-"/>
         </referenceContainer>
@@ -55,6 +62,7 @@
                     <block class="Magento\Framework\View\Element\Template" name="skip_to_content" template="Magento_Theme::html/skip.phtml">
                         <arguments>
                             <argument name="target" xsi:type="string">contentarea</argument>
+                            <argument name="css_class" xsi:type="string">sr-only</argument>
                             <argument name="label" translate="true" xsi:type="string">Skip to Content</argument>
                         </arguments>
                     </block>
@@ -133,14 +141,16 @@
         </referenceContainer>
         <referenceContainer name="footer-container">
             <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">
-                <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" template="Magento_Store::switch/stores.phtml"/>
-                <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
-                    <arguments>
-                        <argument name="css_class" xsi:type="string">footer links</argument>
-                    </arguments>
-                </block>
-                <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="Magento_Theme::html/copyright.phtml"/>
-                <block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" ifconfig="design/footer/report_bugs"/>
+                <container name="inner-footer" htmlTag="div" htmlClass="inner-footer text-gray-700">
+                    <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" template="Magento_Store::switch/stores.phtml"/>
+                    <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
+                        <arguments>
+                            <argument name="css_class" xsi:type="string">footer links</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="Magento_Theme::html/copyright.phtml"/>
+                    <block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" ifconfig="design/footer/report_bugs"/>
+                </container>
             </container>
         </referenceContainer>
         <referenceContainer name="before.body.end">
