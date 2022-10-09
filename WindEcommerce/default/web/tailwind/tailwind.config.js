@@ -63,23 +63,25 @@ module.exports = {
     mode: process.env.TAILWIND_COMPILE_MODE || 'jit',
     content: purgeContent(),
     theme: {
-        fontFamily: {
-            sans: ['Graphik', 'sans-serif'],
-            serif: ['Merriweather', 'serif'],
-        },
-        spacing: {
-            sm: '8px',
-            md: '16px',
-            lg: '24px',
-            xl: '48px'
-        },
         extend: {
             colors: {
-                'carmine': '#a50034'
+                primary: {
+                },
+                secondary: {
+                },
+                background: {
+                },
+                carmine: '#a50034'
             },
             spacing: {
-                '8xl': '96rem',
-                '9xl': '128rem',
+                'sm': '8px',
+                'md': '16px',
+                'lg': '24px',
+                'xl': '48px',
+            },
+            width: {
+                '100': '100px',
+                '170': '170px'
             },
             borderRadius: {
                 '4xl': '2rem',

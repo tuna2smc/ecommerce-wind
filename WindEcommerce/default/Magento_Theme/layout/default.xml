@@ -8,17 +8,9 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
 
-        <!-- <move element="navigation.sections" destination="header-wrapper" after="-" /> -->
-
         <referenceContainer name="content">
             <block name="tailwindy-hero" template="Magento_Theme::hero.phtml" />
         </referenceContainer>
-
-        <referenceBlock name="logo">
-            <arguments>
-                <argument name="logo_width" xsi:type="number">170</argument>
-            </arguments>
-        </referenceBlock>
 
     </body>
 </page>

@@ -5,12 +5,22 @@
  */
 ?>
 <div class="footer-container">
-    <div class="footer">
+    <div class="footer main-footer">
         <?= $block->getChildHtml() ?>
-        <p class="bugs"><?= $block->escapeHtml(__('Help Us Keep Magento Healthy')) ?> - <a
+        <p class="bugs hidden"><?= $block->escapeHtml(__('Help Us Keep Magento Healthy')) ?> - <a
             href="http://www.magentocommerce.com/bug-tracking" rel="noopener"
             target="_blank"><strong><?= $block->escapeHtml(__('Report All Bugs')) ?></strong></a>
         </p>
         <address><?= $block->escapeHtml($block->getCopyright()) ?></address>
+        <div class="container py-6 mx-auto flex items-center sm:flex-row flex-col">
+            <a href="https://hyva.io" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <span class="ml-3 text-xl">WindEcommerce</span>
+            </a>
+            <p>
+                <small class="text-sm text-gray-800 sm:ml-6 sm:mt-0 mt-4">
+                © 2022 <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-700 ml-1">WindEcommerce</a>
+                </small>
+            </p>
+        </div>
     </div>
 </div>
