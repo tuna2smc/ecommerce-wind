@@ -5,8 +5,6 @@ const fs = require('fs');
 const { cwd } = require('process');
 const tailwindDir = cwd();
 
-const environment = require('../environment');
-const settings = require('../config/buildTailWind');
 // Indicate if we are running the task the first time in watch mode.
 let firstRun = true;
 

@@ -1,51 +1,41 @@
+//imports
 const gulp = require('gulp');
+const bs = require('./gulp/tasks/browserSync');
+const wind = require('./gulp/tasks/buildTailWind');
 
-const util = require('util');
+// helpers
 
-const environment = require('./gulp/environment');
+/* task build will generate final production assets */
 
-const DefaultRegistry = require('undertaker-registry');
 
-function Registry() {
-    DefaultRegistry.call(this);
-}
+/* task server will generate files for development daily-basis */
 
-util.inherits(Registry, DefaultRegistry);
 
-Registry.prototype.init = function(taker) {
-    
 
-    //taker.task(require('./gulp/tasks/copyHtml'));
-    //taker.task(require('./gulp/tasks/copyImages'));
-    //taker.task(require('./gulp/tasks/copyScripts'));
-    //taker.task(require('./gulp/tasks/copyUnchanged'));
+gulp.task('watch', function (bs) {
+    bs();
+    return gulp.watch('./styles/styles.scss', gulp.series('sass')).on(
+        'change',
+        bs.reload
+    )
+})
 
-    //taker.task(require('./gulp/tasks/collectViewXml'));
-
-    //taker.task(require('./gulp/tasks/clean'));
-    taker.task(require('./gulp/tasks/buildTailWind'));
-    //taker.task(require('./gulp/tasks/cleanCache'));
-    taker.task(require('./gulp/tasks/browserSync'));
-
-    taker.task(
-        'build',
-        taker.series(
-            taker.parallel(
-                'buildTailWind'
-            )
+gulp.task('serve', function () {
+    const postcss = require('gulp-postcss')
+    return gulp
+        .src('./styles/styles.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(
+            postcss([
+                require('postcss-import'),
+                require('tailwindcss'),
+                require('autoprefixer'),
+            ])
         )
-    );
+        .pipe(gulp.dest('web/css'))
+        .pipe(browserSync.stream())
+})
 
-    taker.task(
-        'watch',
-        taker.series(function enableWatch(done) {
-            environment.watch = true;
-            done();
-        }, 'build')
-    );
+// gulp.task('build', gulp.series('serve watch'))
 
-    taker.task('serve', taker.series('watch', 'browserSync'));
-};
-
-
-gulp.registry(new Registry());
+gulp.task('default', gulp.series('serve watch'))

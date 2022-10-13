@@ -1,6 +1,6 @@
 {
   "name": "@windcommerce/theme-ecommerce-default",
-  "vendor": "WindEcommerce",
+  "vendor": "WindEcommerce/default",
   "version": "0.0.41",
   "author": {
     "name": "Nguyen Anh Tu",
