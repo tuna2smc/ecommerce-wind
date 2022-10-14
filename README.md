@@ -19,5 +19,6 @@ Add/Create WindEcommerce folder and pull files from this repo as child of this f
     Browser-sync
     Gulp
 
+### Extras
 
 
