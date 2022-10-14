@@ -20,5 +20,6 @@ Add/Create WindEcommerce folder and pull files from this repo as child of this f
     Gulp
 
 ### Extras
+Add collabrate team
 
 
