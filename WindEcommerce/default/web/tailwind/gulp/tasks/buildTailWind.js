@@ -2,8 +2,6 @@ const PluginError = require('plugin-error');
 const log = require('fancy-log');
 const path = require('path');
 const fs = require('fs');
-const { cwd } = require('process');
-const tailwindDir = cwd();
 
 // Indicate if we are running the task the first time in watch mode.
 let firstRun = true;
